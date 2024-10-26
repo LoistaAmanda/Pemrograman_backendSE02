@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
@@ -15,3 +16,7 @@ Route::post('/animals', [AnimalController::class, 'store']);
 Route::put('/animals/{id}', [AnimalController::class, 'update']);
 
 Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
+
+
+Route::get('/students', [StudentController::class,'index']);
+Route::post('/students', [StudentController::class,'store']);
