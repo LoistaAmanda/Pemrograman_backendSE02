@@ -15,7 +15,7 @@ class StudentController extends Controller
             $students = Student::all();
             
             $response = [
-                'message' => 'Success Showing All Students Data',
+                'message' => 'Berhasil menampilkan seluruh data student',
                 'data' => $students
             ];
 
@@ -37,7 +37,7 @@ class StudentController extends Controller
             $students = Student::create($input);
 
             $response = [
-                'message' => 'Successfully create new student',
+                'message' => 'Berhasil menambahkan data student baru',
                 'data' => $students
             ];
             
@@ -57,14 +57,42 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $student = Student::find($id);
+
+        if (!$student) {
+            return response()->json(['message' => 'Student tidak ditemukan'], 404);
+        }
+
+        $student->update([
+            'name' => $request->name,
+            'nim' => $request->nim,
+            'email' => $request->email,
+            'majority' => $request->majority
+        ]);
+
+        $response = [
+            'message' => 'Data Student berhasil diupdate',
+            'data' => $student
+        ];
+
+        return response()->json($response, 200);
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+     public function destroy(string $id)
     {
-        //
+        $student = Student::find($id);
+
+        if (!$student) {
+            return response()->json(['message' => 'Student tidak ditemukan'], 404);
+        }
+
+        $student->delete();
+
+        return response()->json(['message' => 'data student berhasil dihapus'], 200);
     }
 }
+
