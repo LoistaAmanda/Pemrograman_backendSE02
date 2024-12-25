@@ -18,9 +18,37 @@ function download(callShowDownload) {
   }, 3000);
 }
 download(showDownload);
-/**
- * TODO:
- * - Refactor callback ke Promise atau Async Await
- * - Refactor function ke ES6 Arrow Function
- * - Refactor string ke ES6 Template Literals
- */
+
+//TODO:
+ 
+//- Refactor callback ke Promise atau Async Await
+let result = "Windows-10.exe";
+
+const downloadStart = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(`Download ${result} dimulai....`);
+      resolve();
+    }, 1000);
+  });
+};
+
+// - Refactor function ke ES6 Arrow Function
+//- Refactor string ke ES6 Template Literals
+const downloadFinish = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log("Download Selesai...");
+      console.log(`Hasil download : ${result}`);
+      resolve();
+    }, 5000);
+  });
+};
+
+const main = async () => {
+  await downloadStart();
+  await downloadFinish();
+};
+
+main();
+
