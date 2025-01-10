@@ -36,11 +36,10 @@ class StudentController {
         data: newStudent,
       };
 
-      res.status(201),json(data);
-
+     res.status(201).json(data);
     } catch (error) {
       res.status(500).json({
-        message: 'Gagal menambahkan data Student',
+        message: "Terjadi kesalahan pada server",
         error: error.message,
       });
     }
