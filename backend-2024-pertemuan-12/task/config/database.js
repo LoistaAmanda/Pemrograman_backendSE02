@@ -5,7 +5,12 @@ const mysql = require("mysql");
 require("dotenv").config();
 
 // destructing object process.env
-const { DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE } = process.env;
+const { 
+  DB_HOST, 
+  DB_USERNAME, 
+  DB_PASSWORD, 
+  DB_DATABASE 
+} = process.env;
 
 // update konfigurasi database dari file .env
 const db = mysql.createConnection({

@@ -21,14 +21,29 @@ class StudentController {
      * Method create mengembalikan data yang baru diinsert.
      * Mengembalikan response dalam bentuk json.
      */
-    // code here
+    
+    try {
+      const {nama, nim, jurusan, email} = req.body;
+      const newStudent = await Student.create({
+        nama,
+        nim,
+        jurusan,
+        email,
+      });
 
-    const data = {
-      message: "Menambahkan data student",
-      data: [],
-    };
+      const data = {
+        message : "Menambahkan data Student",
+        data: newStudent,
+      };
 
-    res.json(data);
+      res.status(201),json(data);
+
+    } catch (error) {
+      res.status(500).json({
+        message: 'Gagal menambahkan data Student',
+        error: error.message,
+      });
+    }
   }
 
   update(req, res) {

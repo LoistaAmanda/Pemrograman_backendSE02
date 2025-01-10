@@ -3,7 +3,7 @@ const Student = require("../models/Student");
 class StudentController {
   // Mendapatkan seluruh resource
   async index(req, res) {
-    const students = await Student.all();
+    const students = await Student.create(req.body);
 
     const data = {
       message: "Menampilkan data student",
