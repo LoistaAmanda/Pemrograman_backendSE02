@@ -8,6 +8,7 @@ router.get("/", (req, res) => {
   res.send("Welcome to Student API");
 });
 
+
 // student routes
 router.get("/students", StudentController.index);
 router.post("/students", StudentController.store);
