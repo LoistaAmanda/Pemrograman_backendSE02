@@ -19,10 +19,7 @@ router.post("/patients", PatientController.createPatient);
 router.put("/patients/:id", PatientController.updatePatient); 
 router.delete("/patients/:id", PatientController.deletePatient); 
 router.get("/patients/:id", PatientController.getPatientById); 
-router.get("/patients/search/:name", PatientController.searchPatientByName); 
-router.get("/patients/status/positive", PatientController.getPositivePatients); 
-router.get("/patients/status/recovered", PatientController.getRecoveredPatients); 
-router.get("/patients/status/dead", PatientController.getDeadPatients); 
+
 
 // export router
 module.exports = router;
