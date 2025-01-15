@@ -17,7 +17,7 @@ class PatientController {
     try {
       const newPatient = req.body;
       const createdPatient = await Patient.create(newPatient);
-      res.status(201).json({ message: "Patient added", data: createdPatient });
+      res.status(201).json({ message: "data pasien berhasil ditambahkan", data: createdPatient });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
@@ -30,9 +30,9 @@ class PatientController {
     try {
       const updatedPatient = await Patient.updateById(id, data);
       if (updatedPatient.affectedRows > 0) {
-        res.json({ message: "Patient updated" });
+        res.json({ message: "data pasien berhasil di update" });
       } else {
-        res.status(404).json({ message: "Patient not found" });
+        res.status(404).json({ message: "Data pasien tidak ditemukan" });
       }
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -45,9 +45,9 @@ class PatientController {
     try {
       const result = await Patient.deleteById(id);
       if (result.affectedRows > 0) {
-        res.json({ message: "Patient deleted" });
+        res.json({ message: "Data pasien berhasil dihapus" });
       } else {
-        res.status(404).json({ message: "Patient not found" });
+        res.status(404).json({ message: "Data pasien tidak ditemukan" });
       }
     } catch (err) {
       res.status(500).json({ error: err.message });
@@ -62,7 +62,7 @@ class PatientController {
       if (patient) {
         res.json(patient);
       } else {
-        res.status(404).json({ message: "Patient not found" });
+        res.status(404).json({ message: "Data pasien tidak ditemukan" });
       }
     } catch (err) {
       res.status(500).json({ error: err.message });
