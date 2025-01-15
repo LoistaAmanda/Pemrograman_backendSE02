@@ -18,12 +18,12 @@ class Patient {
   static async create(data) {
     return new Promise((resolve, reject) => {
       const query =
-        "INSERT INTO patients (name, no_hp, alamat, status, tanggal_masuk, tanggal_keluar) VALUES (?, ?, ?, ?, ?, ?)";
-      const { name, no_hp, alamat, status, tanggal_masuk, tanggal_keluar } =
+        "INSERT INTO patients (name, phone, address, status, in_date_at, out_date_at) VALUES (?, ?, ?, ?, ?, ?)";
+      const {name, phone, address, status, in_date_at, out_date_at} =
         data;
       db.query(
         query,
-        [name, no_hp, alamat, status, tanggal_masuk, tanggal_keluar],
+        [name, phone, address, status, in_date_at, out_date_at],
         (err, result) => {
           if (err) reject(err);
           resolve(result);
@@ -36,12 +36,12 @@ class Patient {
   static async updateById(id, data) {
     return new Promise((resolve, reject) => {
       const query =
-        "UPDATE patients SET name = ?, no_hp = ?, alamat = ?, status = ?, tanggal_masuk = ?, tanggal_keluar = ? WHERE id = ?";
-      const { name, no_hp, alamat, status, tanggal_masuk, tanggal_keluar } =
+        "UPDATE patients SET name = ?, phone = ?, address = ?, status = ?, in_date_at = ?, out_date_at = ? WHERE id = ?";
+      const {name, phone, address, status, in_date_at, out_date_at} =
         data;
       db.query(
         query,
-        [name, no_hp, alamat, status, tanggal_masuk, tanggal_keluar, id],
+        [name, phone, address, status, in_date_at, out_date_at, id],
         (err, result) => {
           if (err) reject(err);
           resolve(result);
