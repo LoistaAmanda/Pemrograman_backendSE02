@@ -14,15 +14,15 @@ router.get("/welcome", (req, res) => {
 });
 
 // Membuat routing patients
-router.get("/patients", PatientController.getAllPatients); // Get All Resource
-router.post("/patients", PatientController.createPatient); // Add Resource
-router.put("/patients/:id", PatientController.updatePatient); // Edit Resource
-router.delete("/patients/:id", PatientController.deletePatient); // Delete Resource
-router.get("/patients/:id", PatientController.getPatientById); // Get Detail Resource
-// router.get("/patients/search/:name", PatientController.searchPatientByName); // Search Resource by name
-// router.get("/patients/status/positive", PatientController.getPositivePatients); // Get Positive Resource
-// router.get("/patients/status/recovered", PatientController.getRecoveredPatients); // Get Recovered Resource
-// router.get("/patients/status/dead", PatientController.getDeadPatients); // Get Dead Resource
+router.get("/patients", PatientController.getAllPatients); 
+router.post("/patients", PatientController.createPatient); 
+router.put("/patients/:id", PatientController.updatePatient); 
+router.delete("/patients/:id", PatientController.deletePatient); 
+router.get("/patients/:id", PatientController.getPatientById); 
+router.get("/patients/search/:name", PatientController.searchPatientByName); 
+router.get("/patients/status/positive", PatientController.getPositivePatients); 
+router.get("/patients/status/recovered", PatientController.getRecoveredPatients); 
+router.get("/patients/status/dead", PatientController.getDeadPatients); 
 
 // export router
 module.exports = router;
