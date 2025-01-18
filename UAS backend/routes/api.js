@@ -6,9 +6,6 @@ const express = require("express");
 // membuat object router
 const router = express.Router();
 
-/**
- * Membuat routing
- */
 router.get("/welcome", (req, res) => {
   res.send("Hello Covid API Express");
 });
@@ -19,7 +16,6 @@ router.post("/patients", PatientController.createPatient);
 router.put("/patients/:id", PatientController.updatePatient); 
 router.delete("/patients/:id", PatientController.deletePatient); 
 router.get("/patients/:id", PatientController.getPatientById); 
-
 
 // export router
 module.exports = router;
